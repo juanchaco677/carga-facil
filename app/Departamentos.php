@@ -22,4 +22,11 @@ class Departamentos extends Model
     {
         return $this->hasMany('App\Pais');
     }
+    /**
+    * Relacion de ciudades a departamentos muchos a uno
+    */
+    public function ciudades()
+    {
+        return $this->belongsTo('App\Ciudades');
+    }
 }
