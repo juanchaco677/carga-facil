@@ -19,7 +19,7 @@ class CreateEmpresasTable extends Migration
             $table->enum('tipo', ['N', 'J']);//NATURAL O JURIDICO
             $table->string('id_persona',15);
             $table->foreign('id_persona')->references('id')->on('usuarios');
-            $table->primary('nit');
+            $table->primary(['nit','id_persona']);
             $table->timestamps();
         });
     }

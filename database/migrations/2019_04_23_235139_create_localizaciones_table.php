@@ -20,7 +20,8 @@ class CreateLocalizacionesTable extends Migration
             $table->unsignedBigInteger('id_ciudad');
             $table->foreign('id_ciudad')->references('id')->on('ciudades');
             $table->string('id_empresa',8)->nullable();
-            $table->foreign('id_empresa')->references('nit')->on('empresas');
+            $table->string('id_persona',15)->nullable();
+            $table->foreign(['id_empresa','id_persona'])->references(['nit','id_persona'])->on('empresas');
             $table->primary('id');
             $table->timestamps();
         });

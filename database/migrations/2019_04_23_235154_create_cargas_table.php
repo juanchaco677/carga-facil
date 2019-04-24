@@ -21,9 +21,11 @@ class CreateCargasTable extends Migration
             $table->unsignedBigInteger('id_polizas');
             $table->foreign('id_polizas')->references('id')->on('polizas');
             $table->string('id_remitente',8);
-            $table->foreign('id_remitente')->references('nit')->on('empresas');
+            $table->string('id_persona_remitente',15);
+            $table->foreign(['id_remitente','id_persona_remitente'])->references(['nit','id_persona'])->on('empresas');
             $table->string('id_destinatario',8);
-            $table->foreign('id_destinatario')->references('nit')->on('empresas');
+            $table->string('id_persona_destinario',15);
+            $table->foreign(['id_destinatario','id_persona_destinario'])->references(['nit','id_persona'])->on('empresas');
             $table->primary('id');
             $table->timestamps();
         });

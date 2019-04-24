@@ -18,10 +18,11 @@ class CreatePublicacionCargasTable extends Migration
             $table->enum('prioridad', ['A','M','B']);//ALTA,MEDIA Y BAJA
             $table->string('titulo',50);
             $table->longText('descripcion');
-            $table->timestamps('fecha');
+            $table->dateTime('fecha');
             $table->boolean('estado');//abierto=>1, cerrado=>0
-            $table->string('id_empresa_remitente',15);
-            $table->foreign('id_empresa_remitente')->references('nit')->on('empresas');
+            $table->string('id_remitente',8);
+            $table->string('id_persona_remitente',15);
+            $table->foreign(['id_remitente','id_persona_remitente'])->references(['nit','id_persona'])->on('empresas');
             $table->string('id_carga',15);
             $table->foreign('id_carga')->references('id')->on('cargas');
             $table->primary('id');

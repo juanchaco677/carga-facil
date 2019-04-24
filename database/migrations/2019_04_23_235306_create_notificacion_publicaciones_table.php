@@ -19,10 +19,12 @@ class CreateNotificacionPublicacionesTable extends Migration
             $table->longText('descripcion');
             $table->string('id_publicacion',15);
             $table->foreign('id_publicacion')->references('id')->on('publicacion_cargas');
-            $table->string('id_remitente',15);
-            $table->foreign('id_remitente')->references('nit')->on('empresas');
-            $table->string('id_transportadora',15);
-            $table->foreign('id_transportadora')->references('nit')->on('empresas');
+            $table->string('id_remite',8);
+            $table->string('id_per_remite',15);
+            $table->foreign(['id_remite','id_per_remite'])->references(['nit','id_persona'])->on('empresas');
+            $table->string('id_transporta',8);
+            $table->string('id_per_trans',15);
+            $table->foreign(['id_transporta','id_per_trans'])->references(['nit','id_persona'])->on('empresas');
             $table->string('id_carga',15);
             $table->foreign('id_carga')->references('id')->on('cargas');
             $table->boolean('estado')->default(1);//activo=>1, desactivado=>0

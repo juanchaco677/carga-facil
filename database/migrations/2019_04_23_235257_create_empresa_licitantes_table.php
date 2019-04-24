@@ -16,8 +16,9 @@ class CreateEmpresaLicitantesTable extends Migration
         Schema::create('empresa_licitantes', function (Blueprint $table) {
             $table->string('id_publicacion',15)->nullable();
             $table->foreign('id_publicacion')->references('id')->on('publicacion_cargas');
-            $table->string('id_empresa',15)->nullable();
-            $table->foreign('id_empresa')->references('nit')->on('empresas');
+            $table->string('id_empresa',8);
+            $table->string('id_persona',15);
+            $table->foreign(['id_empresa','id_persona'])->references(['nit','id_persona'])->on('empresas');
             $table->timestamps();
         });
     }

@@ -15,8 +15,8 @@ class CreateViajesTable extends Migration
     {
         Schema::create('viajes', function (Blueprint $table) {
             $table->string('id',15);
-            $table->timestamp('fecha_inicio_hora');
-            $table->timestamp('fecha_final_hora');
+            $table->dateTime('fecha_inicio_hora');
+            $table->dateTime('fecha_final_hora');
             $table->string('id_manifiesto',15);
             $table->foreign('id_manifiesto')->references('id')->on('manifiestos');
             $table->string('id_remision',15);

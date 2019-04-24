@@ -18,8 +18,9 @@ class CreateRequisitoCargasTable extends Migration
             $table->longText('descripcion');
             $table->string('id_archivo_requisito',15);
             $table->foreign('id_archivo_requisito')->references('id')->on('archivo_multimedia_requisitos');
-            $table->string('id_empresa',15);
-            $table->foreign('id_empresa')->references('nit')->on('empresas');
+            $table->string('id_empresa',8);
+            $table->string('id_persona',15);
+            $table->foreign(['id_empresa','id_persona'])->references(['nit','id_persona'])->on('empresas');
             $table->primary('id');
             $table->timestamps();
         });

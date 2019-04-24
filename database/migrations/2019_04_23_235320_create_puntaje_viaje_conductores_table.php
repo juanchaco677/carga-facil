@@ -18,8 +18,9 @@ class CreatePuntajeViajeConductoresTable extends Migration
             $table->double('cantidad',5,0);
             $table->string('id_viajes',15);
             $table->foreign('id_viajes')->references('id')->on('viajes');
-            $table->string('id_transportadora',15);
-            $table->foreign('id_transportadora')->references('nit')->on('empresas');
+            $table->string('id_transporta',8);
+            $table->string('id_per_trans',15);
+            $table->foreign(['id_transporta','id_per_trans'])->references(['nit','id_persona'])->on('empresas');
             $table->string('id_conductor',15);
             $table->foreign('id_conductor')->references('id')->on('usuarios');
             $table->primary('id');
