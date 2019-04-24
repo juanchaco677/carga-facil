@@ -18,7 +18,7 @@ class Departamentos extends Model
     /**
     * Relacion de pais a departamento uno a muchos
     */
-    public function comments()
+    public function pais()
     {
         return $this->hasMany('App\Pais');
     }
