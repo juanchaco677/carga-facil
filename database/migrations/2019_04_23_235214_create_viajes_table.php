@@ -23,8 +23,10 @@ class CreateViajesTable extends Migration
             $table->foreign('id_remision')->references('id')->on('remesa_cargas');
             $table->string('id_carga',15);
             $table->foreign('id_carga')->references('id')->on('cargas');
-            $table->string('id_localizacion',15);
-            $table->foreign('id_localizacion')->references('id')->on('localizaciones');
+            $table->string('id_remitente',15);
+            $table->foreign('id_remitente')->references('id')->on('localizaciones');
+            $table->string('id_destino',15);
+            $table->foreign('id_destino')->references('id')->on('localizaciones');
             $table->primary('id');
             $table->timestamps();
         });
