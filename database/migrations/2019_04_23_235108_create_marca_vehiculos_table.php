@@ -15,6 +15,7 @@ class CreateMarcaVehiculosTable extends Migration
     {
         Schema::create('marca_vehiculos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nombre',30);
             $table->timestamps();
         });
     }

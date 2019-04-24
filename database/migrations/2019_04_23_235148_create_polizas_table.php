@@ -15,6 +15,7 @@ class CreatePolizasTable extends Migration
     {
         Schema::create('polizas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nombre',30);
             $table->timestamps();
         });
     }

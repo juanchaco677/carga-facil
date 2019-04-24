@@ -14,7 +14,15 @@ class CreatePuntajeViajeConductoresTable extends Migration
     public function up()
     {
         Schema::create('puntaje_viaje_conductores', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('id',15);
+            $table->double('cantidad',5,0);
+            $table->string('id_viajes',15);
+            $table->foreign('id_viajes')->references('id')->on('viajes');
+            $table->string('id_transportadora',15);
+            $table->foreign('id_transportadora')->references('id')->on('empresas');
+            $table->string('id_conductor',15);
+            $table->foreign('id_conductor')->references('id')->on('usuarios');
+            $table->primary('id');
             $table->timestamps();
         });
     }

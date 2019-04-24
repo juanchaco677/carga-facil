@@ -14,7 +14,13 @@ class CreateRequisitoCargasTable extends Migration
     public function up()
     {
         Schema::create('requisito_cargas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('id',15);
+            $table->longText('descripcion');
+            $table->string('id_archivo_requisito',15);
+            $table->foreign('id_archivo_requisito')->references('id')->on('archivo_multimedia_requisitos');
+            $table->string('id_empresa',15);
+            $table->foreign('id_empresa')->references('id')->on('empresas');
+            $table->primary('id');
             $table->timestamps();
         });
     }

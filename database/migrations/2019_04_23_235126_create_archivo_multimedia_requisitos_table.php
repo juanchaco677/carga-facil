@@ -14,7 +14,11 @@ class CreateArchivoMultimediaRequisitosTable extends Migration
     public function up()
     {
         Schema::create('archivo_multimedia_requisitos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('id',15);
+            $table->string('nombre',75);
+            $table->enum('tipo', ['PDF', 'XLSX','DOCX','XLS','DOC','JPG','JPEG','JPGE','PNG']);
+            $table->integer('tamano');
+            $table->primary('id');
             $table->timestamps();
         });
     }

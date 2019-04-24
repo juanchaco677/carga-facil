@@ -14,7 +14,17 @@ class CreateCargasTable extends Migration
     public function up()
     {
         Schema::create('cargas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('id',15);
+            $table->enum('tipo', ['N', 'I','O']);//NORMAL,INFORMAL,OTROS
+            $table->longText('descripcion');
+            $table->integer('cantidad_carga');//en kilogramos
+            $table->integer('id_polizas')->unsigned()->nullable();
+            $table->foreign('id_polizas')->references('id')->on('polizas');
+            $table->string('id_remitente',15);
+            $table->foreign('id_remitente')->references('id')->on('empresas');
+            $table->string('id_destinatario',15);
+            $table->foreign('id_destinatario')->references('id')->on('empresas');
+            $table->primary('id');
             $table->timestamps();
         });
     }

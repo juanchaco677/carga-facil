@@ -14,7 +14,18 @@ class CreateViajesTable extends Migration
     public function up()
     {
         Schema::create('viajes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('id',15);
+            $table->timestamp('fecha_inicio_hora');
+            $table->timestamp('fecha_final_hora');
+            $table->string('id_manifiesto',15);
+            $table->foreign('id_manifiesto')->references('id')->on('manifiestos');
+            $table->string('id_remision',15);
+            $table->foreign('id_remision')->references('id')->on('remesa_cargas');
+            $table->string('id_carga',15);
+            $table->foreign('id_carga')->references('id')->on('cargas');
+            $table->string('id_localizacion',15);
+            $table->foreign('id_localizacion')->references('id')->on('localizaciones');
+            $table->primary('id');
             $table->timestamps();
         });
     }

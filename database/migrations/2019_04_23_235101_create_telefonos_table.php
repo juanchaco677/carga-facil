@@ -15,6 +15,11 @@ class CreateTelefonosTable extends Migration
     {
         Schema::create('telefonos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('numero');
+            $table->integer('indicativo');
+            $table->enum('tipo', ['F', 'C']);
+            $table->string('id_usuario',15);
+            $table->foreign('id_usuario')->references('id')->on('usuarios');
             $table->timestamps();
         });
     }

@@ -14,7 +14,11 @@ class CreateEmpresasTable extends Migration
     public function up()
     {
         Schema::create('empresas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('nit',8)->default('99999999');
+            $table->integer('ano');
+            $table->enum('tipo', ['N', 'J']);//NATURAL O JURIDICO
+            $table->string('id_persona',15);
+            $table->foreign('id_persona')->references('id')->on('usuarios');
             $table->timestamps();
         });
     }
