@@ -21,7 +21,7 @@ class CreatePublicacionCargasTable extends Migration
             $table->timestamps('fecha');
             $table->boolean('estado');//abierto=>1, cerrado=>0
             $table->string('id_empresa_remitente',15);
-            $table->foreign('id_empresa_remitente')->references('id')->on('empresas');
+            $table->foreign('id_empresa_remitente')->references('nit')->on('empresas');
             $table->string('id_carga',15);
             $table->foreign('id_carga')->references('id')->on('cargas');
             $table->primary('id');

@@ -18,12 +18,12 @@ class CreateCargasTable extends Migration
             $table->enum('tipo', ['N', 'I','O']);//NORMAL,INFORMAL,OTROS
             $table->longText('descripcion');
             $table->integer('cantidad_carga');//en kilogramos
-            $table->integer('id_polizas')->unsigned()->nullable();
+            $table->unsignedBigInteger('id_polizas');
             $table->foreign('id_polizas')->references('id')->on('polizas');
-            $table->string('id_remitente',15);
-            $table->foreign('id_remitente')->references('id')->on('empresas');
-            $table->string('id_destinatario',15);
-            $table->foreign('id_destinatario')->references('id')->on('empresas');
+            $table->string('id_remitente',8);
+            $table->foreign('id_remitente')->references('nit')->on('empresas');
+            $table->string('id_destinatario',8);
+            $table->foreign('id_destinatario')->references('nit')->on('empresas');
             $table->primary('id');
             $table->timestamps();
         });

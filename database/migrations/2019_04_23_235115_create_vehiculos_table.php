@@ -17,10 +17,11 @@ class CreateVehiculosTable extends Migration
             $table->string('placa',8);
             $table->string('modelo',30);
             $table->integer('ano_compra')->nullable();
-            $table->integer('id_marca_vehiculo')->unsigned();
+            $table->unsignedBigInteger('id_marca_vehiculo');
             $table->foreign('id_marca_vehiculo')->references('id')->on('marca_vehiculos');
             $table->string('id_conductor',15);
             $table->foreign('id_conductor')->references('id')->on('usuarios');
+            $table->primary('placa');
             $table->timestamps();
         });
     }

@@ -20,9 +20,9 @@ class CreateNotificacionViajesTable extends Migration
             $table->string('id_publicacion',15);
             $table->foreign('id_publicacion')->references('id')->on('publicacion_cargas');
             $table->string('id_remitente',15);
-            $table->foreign('id_remitente')->references('id')->on('empresas');
+            $table->foreign('id_remitente')->references('nit')->on('empresas');
             $table->string('id_destinatario',15);
-            $table->foreign('id_destinatario')->references('id')->on('empresas');
+            $table->foreign('id_destinatario')->references('nit')->on('empresas');
             $table->string('id_viaje',15);
             $table->foreign('id_viaje')->references('id')->on('viajes');
             $table->boolean('estado')->default(1);//activo=>1, desactivado=>0

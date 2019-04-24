@@ -17,7 +17,7 @@ class CreateEmpresaLicitantesTable extends Migration
             $table->string('id_publicacion',15)->nullable();
             $table->foreign('id_publicacion')->references('id')->on('publicacion_cargas');
             $table->string('id_empresa',15)->nullable();
-            $table->foreign('id_empresa')->references('id')->on('empresas');
+            $table->foreign('id_empresa')->references('nit')->on('empresas');
             $table->timestamps();
         });
     }

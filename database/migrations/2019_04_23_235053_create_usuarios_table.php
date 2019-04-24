@@ -25,7 +25,9 @@ class CreateUsuariosTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('contrasena');
             $table->string('id_firma',15)->nullable();
-            $table->foreign('id_firma')->references('id')->on('multimedias');
+            $table->foreign('id_firma')->references('id')->on('archivo_multimedia_usuarios');
+            $table->string('id_foto',15)->nullable();
+            $table->foreign('id_foto')->references('id')->on('archivo_multimedia_usuarios');
             $table->boolean('estado')->default(1);//activo=>1, desactivado=>0
             $table->primary('id');
             $table->rememberToken();

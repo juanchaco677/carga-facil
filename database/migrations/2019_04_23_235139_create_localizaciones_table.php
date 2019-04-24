@@ -1,4 +1,4 @@
-<?php
+clearstatcache<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,10 +17,10 @@ class CreateLocalizacionesTable extends Migration
             $table->string('id',15);
             $table->string('direccion',75);
             $table->longText('latitud_longitud');//guardar como json {,,,}
-            $table->integer('id_ciudad')->unsigned()->nullable();
+            $table->unsignedBigInteger('id_ciudad');
             $table->foreign('id_ciudad')->references('id')->on('ciudades');
-            $table->string('id_empresa',15)->nullable();
-            $table->foreign('id_empresa')->references('id')->on('empresas');
+            $table->string('id_empresa',8)->nullable();
+            $table->foreign('id_empresa')->references('nit')->on('empresas');
             $table->primary('id');
             $table->timestamps();
         });
