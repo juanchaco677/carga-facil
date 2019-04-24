@@ -16,7 +16,7 @@ class CreateLocalizacionesTable extends Migration
         Schema::create('localizaciones', function (Blueprint $table) {
             $table->string('id',15);
             $table->string('direccion',75);
-            $table->longText('latitud_longitud');//guardar como json {,,,}
+            $table->json('latitud_longitud');//guardar como json {,,,}
             $table->unsignedBigInteger('id_ciudad');
             $table->foreign('id_ciudad')->references('id')->on('ciudades');
             $table->string('id_empresa',8)->nullable();
